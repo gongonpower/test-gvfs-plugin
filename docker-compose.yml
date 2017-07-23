@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  test:
+    image: centos:7
+    volumes:
+      - test-vol5:/mydata:nocopy
+    tty: true
+    stdin_open: true
+    command: bash
+volumes:
+  test-vol5:
+    driver: sapk/plugin-gvfs:latest
+    driver_opts:
+      url: "ftp://rose@192.168.1.6/"
+      password: "password"
+    
+
+
